@@ -1,0 +1,38 @@
+in terminal
+curl -x GET http://localhost:3000
+curl -x POST http://localhost:3000
+
+curl -X POST --data "id=4&name=ASLTest4" http://localhost:3000/quizzes
+
+Nodemon:
+in package.json under scripts:
+"dev": "nodemon index.js"
+then in terminal:
+npm install --save-dev nodemon
+npm run dev
+
+body parser:
+npm install --save body-parser
+const bodyParser = require('body-parser')
+router.use(bodyParser.urlencoded({ extended: false }))
+
+DBAL
+brew services start mysql
+npm install --save sequelize
+npm install --save mysql2
+
+cd src
+npx sequelize-cli
+npx sequelize-cli codeGoesHere
+Example:
+npx sequelize-cli model:generate --name=Quiz --attributes=name:string
+mysql -uroot
+show databases
+
+npx sequelize-cli model:generate --name=Choice --attributes=choice:string
+npx sequelize-cli db:migrate
+
+Eager load - include
+
+Client ID: a9a5ffb4747f89ad5277
+Client Secret: b57128a4237e73e042742fdf8a19560c52a07eb5

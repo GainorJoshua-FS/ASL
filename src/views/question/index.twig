@@ -1,0 +1,19 @@
+{% extends 'layouts/_default.twig' %}
+
+{% block main_content %}
+
+    <ul>
+        {% for quest in questions %}
+            <li>
+                {{ quest.question }} - 
+                <a href="/questions/{{quest.id}}/edit">Edit</a>
+                |
+                <a href="/questions/{{quest.id}}/delete">Delete</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <p>
+        <a href="/questions/new">Create new Questions</a>
+    </p>
+
+{% endblock %}

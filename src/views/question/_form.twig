@@ -1,0 +1,33 @@
+{% if question %}
+<form action='/questions/{{question.id}}' method="post">
+{% else %}
+<form action='/questions' method="post">
+{% endif %}
+    <div>
+        <label for="question">Question:</label>
+        {% if question %}
+        <input type="text" name="question" value="{{question.question}}"/>
+        |
+        <label for="quizzes">For Quiz:</label>
+        <select name="quizId">
+            {% for quiz in quizzes %}
+                {% if question and question.quizId == quiz.id %}
+                    <option value={{quiz.id}} selected>{{quiz.name}}</option>
+                {% else %}
+                    <option value={{quiz.id}}>{{quiz.name}}</option>
+                {% endif %}
+            {% endfor %}
+        </select>
+        {% else %}
+        <input type="text" name="question"/>
+        |
+        <label for="quizzes">For Quiz:</label>
+        <select name="quizzes">
+            {% for quiz in quizzes %}
+                <option value={{quiz.id}}>{{quiz.name}}</option>
+            {% endfor %}
+        </select>
+        {% endif %}
+    </div>
+        <input type="submit" value="Save Question">
+</form>
